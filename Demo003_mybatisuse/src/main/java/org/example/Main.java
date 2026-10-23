@@ -1,7 +1,10 @@
 package org.example;
 
 import org.apache.ibatis.session.SqlSession;
+import org.example.bean.Department;
+import org.example.bean.Employee;
 import org.example.bean.Users;
+import org.example.mapper.EmployeeDao;
 import org.example.mapper.UserMapper;
 import org.example.utils.MybatisUtil;
 
@@ -17,7 +20,11 @@ public class Main {
 //        selectById();
 //        insertUser();
 //        updateUsersById();
-        deleteUserById();
+//        deleteUserById();
+        System.out.println("多对一");
+        assionment();
+        System.out.println("一对多");
+        collections();
     }
 
     public static void selectById(){
@@ -59,5 +66,19 @@ public class Main {
         sqlSession.commit();
         System.out.println(result==1?"删除成功":"删除失败");
 
+    }
+
+    public static void assionment(){
+        SqlSession sqlSession = MybatisUtil.getSqlSession();
+        EmployeeDao mapper = sqlSession.getMapper(EmployeeDao.class);
+        Employee empAndDeptById = mapper.getEmpAndDeptById(10);
+        System.out.println(empAndDeptById);
+    }
+
+    public static void collections(){
+        SqlSession sqlSession = MybatisUtil.getSqlSession();
+        EmployeeDao mapper = sqlSession.getMapper(EmployeeDao.class);
+        Department deptAndEmpById = mapper.getDeptAndEmpById(1);
+        System.out.println(deptAndEmpById);
     }
 }

@@ -1,8 +1,0 @@
-org\example\mapper\UserMapper.class
-org\example\a\SqlParamable.class
-org\example\bean\Categories.class
-org\example\bean\Users.class
-org\example\Main.class
-org\example\utils\MybatisUtil.class
-org\example\bean\Orders.class
-org\example\bean\Products.class
