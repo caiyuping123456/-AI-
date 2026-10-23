@@ -8,6 +8,7 @@ import lombok.Data;
  * employee
  */
 @Data
+//使用二级缓存，要进行类的序列化
 public class Employee implements Serializable {
     /**
      * 员工ID
